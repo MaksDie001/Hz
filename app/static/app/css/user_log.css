@@ -1,0 +1,17 @@
+.user_log{
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: Lato,sans-serif;
+    font-size: 18px;
+    list-style: none;
+}
+.list_user{
+    list-style: none;
+}
+.list_user span{
+    color: #f16d7f;
+    font-size: 110%;
+}
+.username{
+    font-size: 24px;
+}

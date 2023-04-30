@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="kk">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>DANASHOP</title>
+    <link rel="stylesheet" href="../../static/app/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b6c6614eab.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    {% if is_aut %}
+        <a class="register-button" href="{% url "login" %}">Вход</a>
+    {% else %}
+        <a class="register-button" href="{% url "user_log" %}">Вход</a>
+    {% endif %}
+    <div class="window-log">
+        <div class="logotip"><img class="logotip-img" src="{% static "app/img/logo.png" %}"></div>
+        <div class="close-window"><a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path fill="#000" d="M9.414 8l4.293-4.293a1 1 0 0 0-1.414-1.414L8 6.586 3.707 2.293a1 1 0 0 0-1.414 1.414L6.586 8l-4.293 4.293a1 1 0 0 0 1.414 1.414L8 9.414l4.293 4.293a1 1 0 0 0 1.414-1.414L9.414 8z"/>
+            </svg>
+          </a>
+          </div>
+          <h1 class="L-in">Вход</h1>
+        <div class="inputs">            
+            <input placeholder="Email" type="email" id="input" class="input-email"><br><br>
+            <input placeholder="Password" type="password" id="input" class="input-password"><br><br>
+        </div>
+        <div class="restore">
+            <a href="helpDANA.com" class="restore-accaunt-password" id="restore-accaunt">Забыли пароль</a>
+            <a href="helpDANA.com" class="restore-accaunt-email" id="restore-accaunt">Забыли почту</a>
+        </div>
+        <div class="buttons">
+            <button class="button-s-in" id="button">Регистрация</button><br><br>
+            <button class="button-l-in" id="button">Войти</button>
+        </div>        
+    </div>
+
+
+    <div class="window-sign">
+        <div class="logotip"><img class="logotip-img" src="{% static "app/img/logo.png" %}"></div>
+        <div class="close-window" id="close-window-double"><a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path fill="#000" d="M9.414 8l4.293-4.293a1 1 0 0 0-1.414-1.414L8 6.586 3.707 2.293a1 1 0 0 0-1.414 1.414L6.586 8l-4.293 4.293a1 1 0 0 0 1.414 1.414L8 9.414l4.293 4.293a1 1 0 0 0 1.414-1.414L9.414 8z"/>
+            </svg>
+          </a>
+          </div>
+          <h1 class="S-in">Регистрация</h1>
+        <div class="Inputs">  
+            <input placeholder="Name" type="name" id="input" class="input-name"><br><br>          
+            <input placeholder="Email" type="email" id="input" class="input-email"><br><br>
+        <input placeholder="Password" type="password" id="input" class="input-password"><br><br>
+            <input placeholder="Dual password" type="password" id="input" class="double-input-password"><br><br>
+        </div>
+        <div class="InputsDuo">
+            <input placeholder="Password" type="password" id="input" class="input-password"><br><br>
+            <input placeholder="Dual password" type="password" id="input" class="double-input-password"><br><br>
+        </div>
+        <div class="restore">
+            <a href="helpDANA.com" class="restore-accaunt-password" id="restore-accaunt">Забыли пароль</a>
+            <a href="helpDANA.com" class="restore-accaunt-email" id="restore-accaunt">Забыли почту</a>
+        </div>
+        <div class="Buttons">
+            <button class="button-s-in-end" id="button2">Зарегистрироваться</button><br><br>
+            <button class="button-l-in-end" id="button2">Уже есть аккаунт</button>
+        </div>        
+    </div>
+
+    <header class="header">
+        <div class="conteiner">
+            <div class="header-flex">
+                <div class="header-left">
+                    <a href="{% url "home" %}" class="logo-link">
+                        <img class="logo-img" src="../../static/app/img/logo.png" alt="logo">
+                        <p class="logo__header">Dana<span class="red-text">shop</span></p>
+                    </a>
+                    <div class="browse-button">
+
+                        <a href="#" class="header-browse">Қарау
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                        <div class="browse-menu">
+                            <div class="mega-flex">
+                                <h3 class="mega-head">Қарау</h3>
+                                <ul>
+                                    <li class="mega-menu-list "> <a class="mega-menu-link link_red"
+                                            href="{% url "product" %}">Көйлектер</a>
+                                    </li>
+                                    <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                            href="{% url "product" %}">Топтар</a>
+                                    </li>
+                                    <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                            href="{% url "product" %}">Свитерлер</a> </li>
+                                    <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                            href="{% url "product" %}">Жакеттер</a> </li>
+                                    <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                            href="{% url "product" %}">Блузкалар</a>
+                                    </li>
+                                    <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                            href="{% url "product" %}">Denim</a>
+                                    </li>
+                                    <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                            href="{% url "product" %}">Легинсилар</a></li>
+                                    <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                            href="{% url "product" %}">Шортылар</a></li>
+                                    <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                            href="{% url "product" %}">Аксессуарлар</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input class="header-input" type="text" placeholder="товарды іздеу...">
+                    <button class="header-button" type="submit">
+                        <img src="../../static/app/img/Q.png" alt="Q">
+                    </button>
+
+                </div>
+
+                <div class="header-right">
+                    <img src="../../static/app/img/cart.svg" alt="cart">
+                    <a href="#" class="my-acc link_background">Менің аккаунтым
+                        <i class="fas fa-caret-down"></i>
+
+                    </a>
+                    <div class="cart-menu">
+                        <div class="cart-product">
+                            <a href="{% url "single" %}" class="cart-content">
+                                <img src="../../static/app/img/cart-photo1.jpg" alt="product">
+                                <div class="cart-text">
+                                    <p class="cart-product-name">DANASHOP</p>
+                                    <div class="rating-area">
+                                        <input type="radio" id="star-5" name="rating" value="5">
+                                        <label for="star-5" title="Оценка «5»"></label>
+                                        <input type="radio" id="star-4" name="rating" value="4">
+                                        <label for="star-4" title="Оценка «4»"></label>
+                                        <input type="radio" id="star-3" name="rating" value="3">
+                                        <label for="star-3" title="Оценка «3»"></label>
+                                        <input type="radio" id="star-2" name="rating" value="2">
+                                        <label for="star-2" title="Оценка «2»"></label>
+                                        <input type="radio" id="star-1" name="rating" value="1">
+                                        <label for="star-1" title="Оценка «1»"></label>
+                                    </div>
+                                    <p class="cart-product-price">1 x 19900</p>
+                                </div>
+                            </a>
+                            <i class="fa fa-times-circle cart-x" aria-hidden="true"></i>
+                        </div>
+                        <hr class="cart-hr">
+                        <div class="cart-product">
+                            <a href="{% url "single" %}" class="cart-content">
+                                <img src="../../static/app/img/cart-photo2.jpg" alt="product">
+                                <div class="cart-text">
+                                    <p class="cart-product-name">DANASHOP</p>
+                                    <div class="rating-area">
+                                        <input type="radio" id="star-5" name="rating" value="5">
+                                        <label for="star-5" title="Оценка «5»"></label>
+                                        <input type="radio" id="star-4" name="rating" value="4">
+                                        <label for="star-4" title="Оценка «4»"></label>
+                                        <input type="radio" id="star-3" name="rating" value="3">
+                                        <label for="star-3" title="Оценка «3»"></label>
+                                        <input type="radio" id="star-2" name="rating" value="2">
+                                        <label for="star-2" title="Оценка «2»"></label>
+                                        <input type="radio" id="star-1" name="rating" value="1">
+                                        <label for="star-1" title="Оценка «1»"></label>
+                                    </div>
+                                    <p class="cart-product-price">1 x 15250</p>
+                                </div>
+                            </a>
+                            <i class="fa fa-times-circle cart-x" aria-hidden="true"></i>
+                        </div>
+                        <hr class="cart-hr">
+                        <div class="cart-total">
+                            <p>Барлығы</p>
+                            <p>35150.00</p>
+                        </div>
+                        <a href="{% url "checkout" %}"><button class="cart-button" type="submit">Тексеру</button></a>
+                        <br>
+                        <a href="{% url "shoping" %}"><button class="cart-button" type="submit">Себетке өту</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+    <div class="header-menu">
+        <div class="conteiner">
+            <ol class="menu-list">
+                <li class="menu-list-addmega"> <a class="menu-link link_red" href="{% url "home" %}">Басты бет</a>
+                    <div class="mega-menu">
+                        <div class="menu-img-box">
+                            <div class="menu-box-list-unit-img">
+                                <a class="ssale-link" href="{% url "product" %}">
+                                    <div class="menu-box-unittxt">
+                                        <p><strong>Супер</strong></p>
+                                        <p><strong>жеңілдіктер!</strong></p>
+                                    </div>
+                                </a>
+                    
+                            </div>
+                        </div>
+                        <div class="mega-flex">
+                            <h3 class="mega-head">Басты бет</h3>
+                            <ul>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Көйлектер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Топтар</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Свитерлер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Жакеттер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Блузкалар</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Denim</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Лонгслив</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Шортылар</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Аксессуарлар</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="menu-list-addmega"> <a class="menu-link link_red" href="{% url "product" %}">Ерлер</a>
+                    <div class="mega-menu">
+                        <div class="menu-img-box">
+                            <div class="menu-box-list-unit-img">
+                                <a class="ssale-link" href="{% url "product" %}">
+                                    <div class="menu-box-unittxt">
+                                        <p><strong>Супер</strong></p>
+                                        <p><strong>жеңілдіктер!</strong></p>
+                                    </div>
+                                </a>
+                        
+                            </div>
+                        </div>
+                        <div class="mega-flex">
+                            <h3 class="mega-head">Ерлер</h3>
+                            <ul>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Жейделер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Костьюм</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Свитерлер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Худилар</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Шалбарлар</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Denim</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Лонгслив</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Шортылар</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Аксессуарлар</a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="menu-list-addmega"> <a class="menu-link link_red" href="{% url "product" %}">Әйелдер</a>
+                    <div class="mega-menu">
+                        <div class="menu-img-box">
+                            <div class="menu-box-list-unit-img">
+                                <a class="ssale-link" href="{% url "product" %}">
+                                    <div class="menu-box-unittxt">
+                                        <p><strong>Супер</strong></p>
+                                        <p><strong>жеңілдіктер!</strong></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mega-flex">
+                            <h3 class="mega-head">Әйелдер</h3>
+                            <ul>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Көйлектер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Топтар</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Свитерлер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Жейделер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Блузкалар</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Denim</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Лонгслив</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Шортылар</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Аксессуарлар</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="menu-list-addmega"> <a class="menu-link link_red" href="{% url "product" %}">Балалар</a>
+                    <div class="mega-menu">
+                        <div class="menu-img-box">
+                            <div class="menu-box-list-unit-img">
+                                <a class="ssale-link" href="{% url "product" %}">
+                                    <div class="menu-box-unittxt">
+                                        <p><strong>Супер</strong></p>
+                                        <p><strong>жеңілдіктер!</strong></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mega-flex">
+                            <h3 class="mega-head">Балалар</h3>
+                            <ul>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Көйлектер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Бас киімдер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Комбинезон</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Қыстық киімдер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Жаздық киімдер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Күздік және көктемдік киімдер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Аяқ киімдер</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Жейделер</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Аксессуарлар</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="menu-list-addmega mega-list-last"> <a class="menu-link link_red"
+                        href="{% url "product" %}">Ұсынылады</a>
+                    <div class="mega-menu">
+                        <div class="menu-img-box">
+                            <div class="menu-box-list-unit-img">
+                                <a class="ssale-link" href="{% url "product" %}">
+                                    <div class="menu-box-unittxt">
+                                        <p><strong>Супер</strong></p>
+                                        <p><strong>жеңілдіктер!</strong></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mega-flex">
+                            <h3 class="mega-head">Ұсынылады</h3>
+                            <ul>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Көйлектер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Топтар</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Жемпір/Тоқылған киімдер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Курткалар/Коутс</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Блейзерлер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Denim</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Леггинстер/Шалбар</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Юбкалар/Шортылар</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Аксессуарлар</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="menu-list-addmega mega-list-last"> <a class="menu-link link_red" href="{% url "product" %}">Ыстық ұсыныстар</a>
+                    <div class="mega-menu">
+                        <div class="menu-img-box">
+                            <div class="menu-box-list-unit-img">
+                                <a class="ssale-link" href="{% url "product" %}">
+                                    <div class="menu-box-unittxt">
+                                        <p><strong>Супер</strong></p>
+                                        <p><strong>жеңілдіктер!</strong></p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mega-flex">
+                            <h3 class="mega-head">Ыстық ұсыныстар</h3>
+                            <ul>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Көйлектер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Топтар</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Жемпір/Тоқылған киімдер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Курткалар/Коутс</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Блейзерлер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Denim</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Леггинстер/Шалбар</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Юбкалар/Шортылар</a></li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Аксессуарлар</a>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+                        <div class="mega-flex">
+                            <h3 class="mega-head">Ыстық ұсыныстар</h3>
+                            <ul>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Көйлектер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Топтар</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Жемпір/Тоқылған киімдер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Курткалар/Коутс</a> </li>
+                            </ul>
+                            <h3 class="mega-head">Ыстық ұсыныстар</h3>
+                            <ul>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Көйлектер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Топтар</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Жемпір/Тоқылған киімдер</a> </li>
+                            </ul>
+                        </div>
+                        <div class="mega-flex">
+                            <h3 class="mega-head">Ыстық ұсыныстар</h3>
+                            <ul>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Көйлектер</a>
+                                </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Топтар</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Жемпір/Тоқылған киімдер</a> </li>
+                                <li class="mega-menu-list"> <a class="mega-menu-link link_red"
+                                        href="{% url "product" %}">Курткалар/Коутс</a> </li>
+                            </ul>
+                            <div class="pic-box"></div>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="header-content">
+        <div class="conteiner">
+            <div class="content-flex">
+                <div class="block-red"></div>
+                <div class="header-content-text">
+                    <p> <span class="big-text">DANASHOP</span> <br>
+                        <span class="red-text">СӘНДІ МОДА</span>
+                        ТУРАЛЫ
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <content class="middle-content">
+        <div class="conteiner middle-flex">
+            <div class="middle-left">
+                <div class="for-men">
+                    <a href="{% url "product" %}" class="middle-link">
+                        <img src="../../static/app/img/62.jpg" alt="men">
+                        <p class="middle-text">Жаңа топтама<br><span class="red-text middle-size-red">ЕРЛЕР ҮШІН</span></p>
+                    </a>
+                </div>
+                <div class="accesories">
+                    <a href="{% url "product" %}" class="middle-link">
+                        <img src="../../static/app/img/accesories.jpg" alt="accesories">
+                        <p href="{% url "product" %}" class="middle-text accesoties-text">сәнді & модный <br><span
+                                class="red-text middle-size-red">Аксессуарлар</span></p>
+                    </a>
+                </div>
+            </div>
+            <div class="middle-right">
+                <div class="for-women">
+                    <a href="{% url "single" %}" class="middle-link">
+                        <img src="../../static/app/img/60.jpg" alt="women">
+                        <p href="{% url "product" %}" class="middle-text">30% жеңілдіктер <br>
+                            <span class="red-text middle-size-red">әйелдер үшін</span></p>
+                    </a>
+                </div>
+                <div class="kids">
+                    <a href="{% url "product" %}" class="middle-link">
+                        <img src="../../static/app/img/kids.jpg" alt="kids">
+                        <p href="#" class="middle-text">жаңа топтама <br><span class="red-text  middle-size-red">Балдар үшін</span></p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </content>
+
+    <section>
+
+        <div class="items conteiner">
+            <h3 class="items-text-title">Ұсынылатын тауарлар</h3>
+            <p class="items-text">Осы аптада біз көрсеткен негізгі тауарларды сатып алыңыз</p>
+            <div class="items-list">
+                <div class="items-cards">
+                    <a class="items-link" href="{% url "single" %}">
+                        <img class="items-img" src="../../static/app/img/112.jpg" alt="men" width="100%">
+                        <div class="text-cards">
+                            <p>DANASHOP <br>
+                                <snap class="red-text">12500.00</snap>
+                            </p>
+                        </div>
+
+                    </a>
+                    <div class="items-add-flex">
+                        <a class="items-add" href="{% url "shoping" %}">
+                            <img src="../../static/app/img/cart-items.svg" alt="cart">
+                            <span class="items-add-text">себетке қосу</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="items-cards">
+                    <a class="items-link" href="{% url "single" %}">
+                        <img class="items-img" src="../../static/app/img/113.jpg" alt="photo" width="100%">
+                        <div class="text-cards">
+                            <p>DANASHOP  <br>
+                                <snap class="red-text">34000.00</snap>
+                            </p>
+                        </div>
+
+                    </a>
+                    <div class="items-add-flex">
+                        <a class="items-add" href="{% url "shoping" %}">
+                            <img src="../../static/app/img/cart-items.svg" alt="cart">
+                            <span class="items-add-text">себетке қосу</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="items-cards">
+                    <a class="items-link" href="{% url "single" %}">
+                        <img class="items-img" src="../../static/app/img/114.jpg" alt="product" width="100%">
+                        <div class="text-cards">
+                            <p>DANASHOP  <br>
+                                <snap class="red-text">19900.00</snap>
+                            </p>
+                        </div>
+
+                    </a>
+                    <div class="items-add-flex">
+                        <a class="items-add" href="{% url "shoping" %}">
+                            <img src="../../static/app/img/cart-items.svg" alt="cart">
+                            <span class="items-add-text">себетке қосу</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="items-cards">
+                    <a class="items-link" href="{% url "single" %}">
+                        <img class="items-img" src="../../static/app/img/115.jpg" alt="product" width="100%">
+                        <div class="text-cards">
+                            <p>DANASHOP  <br>
+                                <snap class="red-text">28500.00</snap>
+                            </p>
+                        </div>
+
+                    </a>
+                    <div class="items-add-flex">
+                        <a class="items-add" href="{% url "shoping" %}">
+                            <img src="../../static/app/img/cart-items.svg" alt="cart">
+                            <span class="items-add-text">себетке қосу</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="items-cards">
+                    <a class="items-link" href="{% url "single" %}">
+                        <img class="items-img" src="../../static/app/img/116.jpg" alt="product" width="100%">
+                        <div class="text-cards">
+                            <p>DANASHOP  <br>
+                                <snap class="red-text">36500.00</snap>
+                            </p>
+                        </div>
+
+                    </a>
+                    <div class="items-add-flex">
+                        <a class="items-add" href="{% url "shoping" %}">
+                            <img src="../../static/app/img/cart-items.svg" alt="cart">
+                            <span class="items-add-text">себетке қосу</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="items-cards">
+                    <a class="items-link" href="{% url "single" %}">
+                        <img class="items-img" src="../../static/app/img/117.jpg" alt="product" width="100%">
+                        <div class="text-cards">
+                            <p>DANASHOP  <br>
+                                <snap class="red-text">42000.00</snap>
+                            </p>
+                        </div>
+
+                    </a>
+                    <div class="items-add-flex">
+                        <a class="items-add" href="{% url "shoping" %}">
+                            <img src="../../static/app/img/cart-items.svg" alt="cart">
+                            <span class="items-add-text">себетке қосу</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="items-cards">
+                    <a class="items-link" href="{% url "single" %}">
+                        <img class="items-img" src="../../static/app/img/118.jpg" alt="product" width="100%">
+                        <div class="text-cards">
+                            <p>DANASHOP  <br>
+                                <snap class="red-text">18900.00</snap>
+                            </p>
+                        </div>
+
+                    </a>
+                    <div class="items-add-flex">
+                        <a class="items-add" href="{% url "shoping" %}">
+                            <img src="../../static/app/img/cart-items.svg" alt="cart">
+                            <span class="items-add-text">себетке қосу</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="items-cards">
+                    <a class="items-link" href="{% url "single" %}">
+                        <img class="items-img" src="../../static/app/img/119.jpg" alt="product" width="100%">
+                        <div class="text-cards">
+                            <p>DANASHOP  <br>
+                                <snap class="red-text">21800.00</snap>
+                            </p>
+                        </div>
+
+                    </a>
+                    <div class="items-add-flex">
+                        <a class="items-add" href="{% url "shoping" %}">
+                            <img src="../../static/app/img/cart-items.svg" alt="cart">
+                            <span class="items-add-text">себетке қосу</span>
+                        </a>
+                        </div{% url "shoping" %} </div>
+                    </div>
+                </div>
+            </div>
+            <a href="{% url "product" %}" class="button-all-product link_background">Барлық өнімді қарау
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </a>
+        </div>
+    </section>
+
+    <offer>
+        <div class="conteiner">
+            <div class="offer">
+                <div class="offer-left">
+                    <a href="{% url "single" %}" class="offer-link">
+                        <img src="../../static/app/img/offer_forwomen.jpg" alt="women">
+                        <p class="offer-text">30% <span style=color:#f16d7f;>жеңілдіктер</span><br><span
+                                class="text-forwomen">әйелдер үшін</span></p>
+                    </a>
+
+                </div>
+                <div class="offer-right">
+                    <ul>
+                        <li class="offer-flex">
+                            <img src="../../static/app/img/Forma_1.svg" alt="car">
+                            <div class="offer-text-right">
+                                <a href="{% url "checkout" %}" class="offer-text-link link_red">
+                                    <p class="offer-text-right1">Тегін жеткізу</p>
+                                    <p class="offer-text-right2">бүкіл Қазақстан бойынша жеткізу. Келесі ұрпақты беделді түрде өзгерту</p>
+                                </a>
+                            </div>
+
+                        </li>
+                        <li class="offer-flex">
+                            <img src="../../static/app/img/Forma_2.svg" alt="star">
+                            <div class="offer-text-right">
+                                <a href="{% url "checkout" %}" class="offer-text-link link_red">
+                                    <p class="offer-text-right1">Сатылым & жеңілдіктер</p>
+                                    <p class="offer-text-right2">бүкіл Қазақстан бойынша жеткізу. Келесі ұрпақты беделді түрде өзгерту</p>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="offer-flex">
+                            <img src="../../static/app/img/Forma_3.svg" alt="king">
+                            <div class="offer-text-right">
+                                <a href="{% url "checkout" %}" class="offer-text-link link_red">
+                                    <p class="offer-text-right1">Сапа кепілдігі</p>
+                                    <p class="offer-text-right2">бүкіл Қазақстан бойынша жеткізу. Келесі ұрпақты беделді түрде өзгерту</p>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+    </offer>
+
+    <footer class="footer">
+        <div class="sub">
+            <img src="../../static/app/img/sub_fon+.png" class="sub-fon" alt="sub">
+            <div class="conteiner">
+                <div class="sub-content">
+                    <div class="sub-left">
+                        <img src="../../static/app/img/photo2.png" alt="photo">
+                        <div class="sub-text-left">
+                            <p>Cән тауарларын сатуға арналған веб парақша</p>
+                            <p class="sub-text-left2"> <span class="sub-text-red">DANASHOP</span> <br>
+                                DANASHOP</p>
+                            <ul class="corousel">
+                                <li><a href="#" class="corousel-link link_background"></a></li>
+                                <li><a href="#" class="corousel-link link_background"></a></li>
+                                <li><a href="#" class="corousel-link link_background"></a></li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                    <hr class="sub-hr">
+                    <div class="sub-right">
+                        <p><span class="sub-right-header">Жазылу</span> <br>
+                            БІЗДІҢ АҚПАРАТТЫҚ БЮЛЛЕТЕНЬДЕР МЕН ЖАРНАМАЛАР ҮШІН</p>
+                        <input type="email" class="sub-input" placeholder="Enter Your Email">
+                        <button class="sub-button link_background" id="submitButton" type="submit">Жазылу</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-menu conteiner">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <a href="{% url "home" %}" class="logo-link">
+                        <img class="logo-img" src="../../static/app/img/logo.png" alt="logo">
+                        <p class="logo__header">DANA<span class="red-text">SHOP</span></p>
+                    </a>
+                </div>
+                <p class="footer-menu-text">Cән тауарларын сатуға арналған веб парақша
+                    <br><br><br>
+                    DANASHOP@gmail.com
+                </p>
+            </div>
+            <ul class="footer-right">
+                <li>
+                    <ul class="footer-list">Компания
+                        <br><br><br>
+                        <li> <a href="{% url "home" %}" class="footer-link link_red">БАСТЫ БЕТ</a></li>
+                        <li> <a href="{% url "product" %}" class="footer-link link_red">Дүкен </a></li>
+                        <li> <a href="{% url "checkout" %}" class="footer-link link_red">Біз туралы </a></li>
+                        <li> <a href="{% url "checkout" %}" class="footer-link link_red">Бұл қалай жұмыс істейді </a></li>
+                        <li> <a href="{% url "checkout" %}" class="footer-link link_red">Байланыс </a></li>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <ul class="footer-list">Ақпарат
+                        <br><br><br>
+                        <li> <a href="{% url "checkout" %}" class="footer-link link_red">Командалар & Жағдайы </a></li>
+                        <li> <a href="{% url "checkout" %}" class="footer-link link_red">құпиялылық саясаты </a></li>
+                        <li> <a href="{% url "checkout" %}" class="footer-link link_red">Қалай сатып алуға болады </a></li>
+                        <li> <a href="{% url "checkout" %}" class="footer-link link_red">Қалай сатуға болады </a></li>
+                        <li> <a href="{% url "checkout" %}" class="footer-link link_red">прогресс </a></li>
+
+                    </ul>
+
+                </li>
+                <li>
+                    <ul class="footer-list">ДҮКЕН САНАТЫ
+                        <br><br><br>
+                        <li> <a href="{% url "product" %}" class="footer-link link_red">Ерлер</a></li>
+                        <li> <a href="{% url "product" %}" class="footer-link link_red">Әйелдер</a></li>
+                        <li> <a href="{% url "product" %}" class="footer-link link_red">Балалар</a></li>
+                        <li> <a href="{% url "product" %}" class="footer-link link_red">Аксессуарлар</a></li>
+                        <li> <a href="{% url "product" %}" class="footer-link link_red">Барлығын көру</a></li>
+
+                    </ul>
+                </li>
+            </ul>
+
+
+
+        </div>
+        <div class="footer-bottom">
+            <div class="conteiner">
+                <div class="footer-flex">
+                    <p class="copyright">© 2023 жылғы Бренд, Барлық құқықтар қорғалған. </p>
+                    <ul class="social_network">
+                        <li class="social-list"><a href="#" class="social-link link_background"><i
+                                    class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li class="social-list"><a href="#" class="social-link link_background"><i class="fa fa-twitter"
+                                    aria-hidden="true"></i></a></li>
+                        <li class="social-list"><a href="#" class="social-link link_background"><i
+                                    class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li class="social-list"><a href="#" class="social-link link_background"><i
+                                    class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        <li class="social-list"><a href="#" class="social-link link_background"><i
+                                    class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </footer>
+<script src="{% static "app/js/script.js" %}"></script>
+</body>
+
+</html>

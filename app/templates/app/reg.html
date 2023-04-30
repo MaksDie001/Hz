@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static "app/css/log_reg.css" %}"  rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="log_form">
+<form method="post"  >
+    {% csrf_token %}
+    {% for f in form %}
+    <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+    <div class="form-error">{{ f.errors }}</div>
+    {% endfor %}
+    <button type="submit" class="button_log">Регистрация</button>
+</form>
+</div>
+</body>
+</html>
